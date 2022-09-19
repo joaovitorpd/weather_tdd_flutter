@@ -1,14 +1,16 @@
 import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
+import 'package:weather_tdd_flutter/data/models/weather_model.dart';
 import 'package:weather_tdd_flutter/domain/entities/weather.dart';
+
+import '../../helpers/json_reader.dart';
 
 void main() {
   const tWeatherModel = WeatherModel(
     cityName: 'Jakarta',
     main: 'Clouds',
     description: 'few clouds',
-    iconCode: '02d'
+    iconCode: '02d',
     temperature: 302.28,
     pressure: 1009,
     humidity: 70,
@@ -54,12 +56,12 @@ void main() {
 
   group('to json', () {
     test(
-      'should return a json map containing proper data', 
+      'should return a json map containing proper data',
       () async {
         final result = tWeatherModel.toJson();
 
         //assert
-        final expectJsonMap = {
+        final expectedJsonMap = {
           'weather': [
             {
               'main': 'Clouds',
@@ -76,6 +78,6 @@ void main() {
         };
         expect(result, equals(expectedJsonMap));
       },
-      );
+    );
   });
 }
