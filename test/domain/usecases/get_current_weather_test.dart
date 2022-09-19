@@ -1,5 +1,9 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:weather_tdd_flutter/domain/entities/weather.dart';
+import 'package:weather_tdd_flutter/domain/usecases/get_current_weather.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockWeatherRepository mockWeatherRepository;
@@ -26,7 +30,7 @@ void main() {
     'should get current detail from repository',
     () async {
       //arrange
-      when(mockWeatherRepository.GetCurrentWeather(tCityName))
+      when(mockWeatherRepository.getCurrentWeather(tCityName))
           .thenAnswer((_) async => const Right(testWeatherDetail));
 
       //act
