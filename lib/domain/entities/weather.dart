@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class Weather extends Equatable {
   const Weather({
-    required this.tCityName,
+    required this.cityName,
     required this.main,
     required this.description,
     required this.iconCode,
